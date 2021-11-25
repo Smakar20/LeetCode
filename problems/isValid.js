@@ -8,6 +8,10 @@ Open brackets must be closed in the correct order.
 */
 
 var isValid = function(s) {
+    if (s.length == 0 || s.length%2 != 0) {
+        return false;
+    }
+    
     let stack =[];
     
     for (let i = 0; i < s.length; i++) {
