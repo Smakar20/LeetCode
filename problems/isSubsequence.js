@@ -32,3 +32,29 @@ var isSubsequence = function(s, t) {
     }
     return currentStr.length === 0;
 };
+
+//------------------------ another way ---------------------------------
+var isSubsequence = function(s, t) {
+    if (s.length === 0) {
+        return true;
+    }
+    let i = s.length - 1;
+    let j = t.length - 1;
+    return isSubsequenceHelper(s, t, i, j);
+};
+
+function isSubsequenceHelper(s, t, i, j) {
+    if (i < 0) { 
+        return true;
+    }
+    
+    if (j < 0) {
+        return false;
+    }
+    
+    if (s[i] === t[j]) {
+        return isSubsequenceHelper(s, t, i-1, j-1);
+    }
+    
+    return isSubsequenceHelper(s, t, i, j-1);
+}
