@@ -34,11 +34,10 @@ Constraints:
 
 var smallerNumbersThanCurrent = function(nums) {
    if (nums.length === 0) return [];
+   let output = [];
    let sortedArr = [...nums].sort((a, b) => a - b);
-   let count = 0;
-   let map = {}; 
-   for (let i = 0; i < sortedArr.length; i++) {
-       map[sortedArr[i]] = sortedArr.indexOf(sortedArr[i]);   
+   for (let i = 0; i < nums.length; i++) {
+       output.push(sortedArr.indexOf(nums[i]));
    } 
-   return nums.map(n => map[n]);
-};
+    return output;
+};             
