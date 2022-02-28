@@ -58,13 +58,14 @@ var numIslands = function(grid) {
 };
 
 function markAsVisited(grid, visited, row, col) {
-    //check the surrounding cells and update them if the value is '1' and not visited yet
+   //mark the current cell as visited true
     visited[row][col] = true;
     const rowPosToCheck = [-1, 0, 0, 1];
     const colPosToCheck = [0, -1, 1, 0];
     
     // max surrounding cells to check would be 4 (top, left, right, bottom)
     for (let i = 0; i < 4; i++) {
+      //check the surrounding cells and update them if the value is '1' and not visited yet
         if (isSafe(grid, visited, row + rowPosToCheck[i], col + colPosToCheck[i])) {
             //recursively update connect cell's visited status
             markAsVisited(grid, visited, row + rowPosToCheck[i], col + colPosToCheck[i]);
