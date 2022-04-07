@@ -22,6 +22,7 @@ Constraints:
 */
 
 var lengthOfLongestSubstringKDistinct = function(s, k) {
+    if (k === 0) return 0;
     let [l, maxLen] = [0, 1];
     const distCharMap = {};
 
