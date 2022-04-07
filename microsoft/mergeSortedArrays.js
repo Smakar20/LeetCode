@@ -55,3 +55,12 @@ var merge = function(nums1, m, nums2, n) {
         }
     }
 };
+
+// -------------------refactored-----------------------
+var merge = function(nums1, m, nums2, n) {
+    let [p1, p2] = [m - 1, n - 1];
+    for (let p = m + n - 1; p >= 0; p--) {
+        if (p2 < 0) break;
+        nums1[p] = (p1 >= 0 && nums1[p1] > nums2[p2]) ? nums1[p1--] : nums2[p2--];
+    }
+};
