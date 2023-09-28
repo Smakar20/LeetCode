@@ -35,26 +35,10 @@ var isSubsequence = function(s, t) {
 
 //------------------------ another way ---------------------------------
 var isSubsequence = function(s, t) {
-    if (s.length === 0) {
-        return true;
+    let [l, r] = [0, 0];
+    while (l < s.length && r < t.length) {
+        if (s[l] === t[r]) l++;
+        r++;
     }
-    let i = s.length - 1;
-    let j = t.length - 1;
-    return isSubsequenceHelper(s, t, i, j);
+    return l === s.length;
 };
-
-function isSubsequenceHelper(s, t, i, j) {
-    if (i < 0) { 
-        return true;
-    }
-    
-    if (j < 0) {
-        return false;
-    }
-    
-    if (s[i] === t[j]) {
-        return isSubsequenceHelper(s, t, i-1, j-1);
-    }
-    
-    return isSubsequenceHelper(s, t, i, j-1);
-}
