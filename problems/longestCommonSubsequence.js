@@ -29,6 +29,8 @@ Constraints:
 text1 and text2 consist of only lowercase English characters.
 */
 
+// logic: https://www.youtube.com/watch?v=sSno9rV8Rhg
+
 var longestCommonSubsequence = function(text1, text2) {
    /* const lcs = (i, j) => {
         if (text1[i] === undefined || text2[j] === undefined) return 0;
